@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getComputerChoice() {
+        const choices = ["rock", "paper", "scissors"];
+        const randomIndex = Math.floor(Math.random() * 3);
+        return choices[randomIndex];
+        console.log(getComputerChoice();)
+      }
+      function playRound(playerSelection, computerSelection) {
+        if (playerSelection == computerSelection) {
+          return "It's tie " + playerSelection + "equals" + computerSelection;
+        } else if (
+          (playerSelection === "rock" && computerSelection === "scissors") ||
+          (playerSelection === "scissors" && computerSelection === "paper") ||
+          (playerSelection === "paper" && computerSelection === "rock")
+        ) {
+          return "You win";
+        } else {
+          return "your lose";
+        // }
+      }
+      function play(){
+      
+        for(loop=0;loop<2;loop++){
+        let playerSelection = prompt("Enter your choice: rock, paper or scissors");
+          var computerSelection = getComputerChoice();
+      console.log(playRound(playerSelection, computerSelection));      
+
+        }
+      }
+    play();
+    </script>
+  </body>
+</html>
+<!--  -->
