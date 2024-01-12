@@ -5,38 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+<style>
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body{
+  font-family:'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+#container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#new{
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+  gap: 5px;
+}
+button{
+  background-color: #3498db;
+  padding: 12px 12px;
+}
+#result {
+  border: 2px solid black;
+  width: auto;
+  padding: 12px 12px;
+  margin-bottom: 23px;
+}
+#count {
+  border: 2px solid black;
+  width: auto;
+  padding: 12px 12px;
+  
+}
+</style>
+
   <body>
-    <script>
+    <div id="container">
+      <h2>Rock Paper scissors Game</h2>
+      <div id="new">
+
+        <div id="one"><button onclick="rock()">Rock</button></div>
+        <div id="two"><button onclick="paper()">Paper</button></div>
+        <div id="three"><button onclick="scissors()">scissors</button></div>
+      </div>
+      <div id="result">Result</div>
+      <div id="count">Count</div>  
+    </div>
+
+      
+      <script>
+      let score=0;
       function getComputerChoice() {
         const choices = ["rock", "paper", "scissors"];
         const randomIndex = Math.floor(Math.random() * 3);
         return choices[randomIndex];
-        console.log(getComputerChoice();)
+        
       }
+      // console.log(getComputerChoice());
+
+      function rock(){
+    
+    play("rock");       
+  }
+  function paper(){
+    play("paper")
+  }
+  function scissors(){
+  play("scissors");
+    }
+     
       function playRound(playerSelection, computerSelection) {
+      
         if (playerSelection == computerSelection) {
-          return "It's tie " + playerSelection + "equals" + computerSelection;
+          return "It's tie " + playerSelection + " equals  " + computerSelection;
         } else if (
           (playerSelection === "rock" && computerSelection === "scissors") ||
           (playerSelection === "scissors" && computerSelection === "paper") ||
           (playerSelection === "paper" && computerSelection === "rock")
-        ) {
-          return "You win";
-        } else {
-          return "your lose";
-        // }
-      }
-      function play(){
-      
-        for(loop=0;loop<2;loop++){
-        let playerSelection = prompt("Enter your choice: rock, paper or scissors");
-          var computerSelection = getComputerChoice();
-      console.log(playRound(playerSelection, computerSelection));      
-
+          ) {
+            return "You win";
+          } else {
+            return "You lose";
+            
+          }
         }
-      }
-    play();
+  function play(playerSelection){
+  
+    var computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));      
+    let result= playRound(playerSelection, computerSelection);      
+    
+    document.getElementById('result').innerHTML=result;   
+  
+    scorcode(playerSelection,computerSelection);
+
+    }
+    function scorcode(playerSelection,computerSelection){
+      if (
+          (playerSelection === "rock" && computerSelection === "scissors") ||
+          (playerSelection === "scissors" && computerSelection === "paper") ||
+          (playerSelection === "paper" && computerSelection === "rock")
+        ){
+          score++;
+        }
+        document.getElementById('count').innerHTML=score;
+        console.log(score);
+    }
+   
     </script>
   </body>
 </html>
-<!--  -->
