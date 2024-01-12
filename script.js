@@ -1,3 +1,4 @@
+
 let score=0;
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
