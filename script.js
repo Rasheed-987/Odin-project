@@ -43,9 +43,10 @@ let result= playRound(playerSelection, computerSelection);
 document.getElementById('result').innerHTML=result;   
 
 scorcode(playerSelection,computerSelection);
-
+display(score);
 }
 function scorcode(playerSelection,computerSelection){
+   display(score);
 if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "scissors" && computerSelection === "paper") ||
@@ -54,6 +55,13 @@ if (
     score++;
   }
   document.getElementById('count').innerHTML=score;
-  console.log(score);
-}
 
+}
+function display(score){
+
+  if(score==5){
+    
+   document.getElementById('display').innerHTML="you win";
+ score=0;
+  }
+}
